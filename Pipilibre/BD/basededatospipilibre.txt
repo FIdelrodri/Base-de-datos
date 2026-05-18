@@ -1,0 +1,55 @@
+DROP DATABASE IF EXISTS Lospipislibres;
+CREATE DATABASE Lospipislibres;
+USE Lospipislibres;
+
+CREATE TABLE usuario(
+    id_usuario int AUTO_INCREMENT primary key not null,
+    Nombre_usuario varchar(15) not null unique,
+    nombre varchar(20),
+    apelldio varchar(20),
+    dni int(8),
+    correo_eletronico varchar(100) not null unique,
+    contraseña VARCHAR(255) not null,
+    saldo decimal(20,2) default 0
+    
+);
+
+Create Table publicacion(
+	id_publicacion int auto_increment primary key not null,
+    id_autor int ,
+    Nombre_Producto varchar(50) not null,
+    descripcion VARCHAR(255),
+    imagen VARCHAR(255),
+    precio decimal(20,2) not null,
+    stock int
+    
+);
+
+Create Table compra(
+	id_compra int auto_increment primary key,
+    id_comprador int NOT NULL,
+    id_publicacion int NOT NULL,
+    fecha DATETIME DEFAULT CURRENT_TIMESTAMP
+    
+);
+DELIMITER //
+create procedure crearcuenta (
+    in Nombre_usuario varchar(15),
+    -- in nombre varchar(20),
+    -- in apelldio varchar(20),
+	-- in dni int(8)
+    in correo_eletronico varchar(100),
+    in contraseña VARCHAR(255)
+)
+begin
+	insert into usuario (Nombre_usuario, /*nombre,apelldio,dni,*/ correo_eletronico,contraseña,saldo) 
+    values(Nombre_usuario,/*nombre,apelldio,dni */correo_eletronico,contraseña );
+end
+// DELIMITER ;
+
+delimiter //
+create procedure crear_producto ()
+begin
+	
+end
+// delimiter ;
