@@ -1,0 +1,128 @@
+/* Estilos básicos de la página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Estilos del Menú Desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.btn-menu {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Mostrar el menú al pasar el mouse (hover) */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* ==========================================
+   Estilos de la Ventana Modal (Emergente)
+   ========================================== */
+.modal {
+    display: none; /* Oculta por defecto */
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 50%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.btn-cerrar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.btn-cerrar:hover {
+    color: black;
+}
+
+/* 1. Forzamos a que el contenedor del menú sea relativo */
+.barra_derecha .dropdown {
+    position: relative !important;
+    display: inline-block !important;
+}
+
+/* 2. Corregimos la caja que oculta y muestra las opciones */
+.barra_derecha .dropdown-content {
+    display: none !important; /* Oculto por defecto */
+    position: absolute !important;
+    right: 0 !important; /* Lo alinea al borde derecho del botón */
+    background-color: #ffffff !important; /* Fondo blanco para que no sea transparente */
+    min-width: 200px !important;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.3) !important;
+    z-index: 9999 !important; /* Para que quede por encima de los productos */
+    border-radius: 4px !important;
+    margin-top: 5px !important;
+}
+
+/* 3. Forzamos a que los enlaces se pongan UNO ABAJO DEL OTRO (Vertical) */
+.barra_derecha .dropdown-content a {
+    color: #333333 !important; /* Texto oscuro */
+    padding: 12px 16px !important;
+    text-decoration: none !important; /* Saca la línea violeta de abajo */
+    display: block !important; /* Hace que se comporten como filas (vertical) */
+    text-align: left !important;
+    font-family: Arial, sans-serif !important;
+}
+
+/* 4. Efecto cuando pasás el mouse por encima de una opción */
+.barra_derecha .dropdown-content a:hover {
+    background-color: #f1f1f1 !important;
+    color: #000000 !important;
+}
+
+/* 5. REGLA DE ORO: Mostrar el menú vertical SOLO cuando tocás o pasás el mouse por "Mi Cuenta" */
+.barra_derecha .dropdown:hover .dropdown-content {
+    display: block !important;
+}

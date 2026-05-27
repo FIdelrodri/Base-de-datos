@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú con Ventana Modal</title>
+    <link rel="stylesheet" href="prueba.css">
+</head>
+<body>
+
+    <h2>Ejemplo de Menú y Ventana Emergente</h2>
+
+    <div class="dropdown">
+        <button class="btn-menu">Mi Menú ▼</button>
+        <div class="dropdown-content">
+            <a href="#">Enlace normal 1</a>
+            <a href="#" id="abrirModal">Abrir Ventana</a>
+            <a href="#">Enlace normal 2</a>
+        </div>
+    </div>
+
+    <div id="miVentana" class="modal">
+        <div class="modal-content">
+            <span class="btn-cerrar" id="cerrarModal">&times;</span>
+            <h3>¡Hola! Soy una ventana emergente</h3>
+            <p>Este es el contenido de la ventana que se abrió desde el menú desplegable.</p>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById("miVentana");
+        const btnAbrir = document.getElementById("abrirModal");
+        const btnCerrar = document.getElementById("cerrarModal");
+
+        btnAbrir.addEventListener("click", (e) => {
+            e.preventDefault(); 
+            modal.style.display = "block";
+        });
+
+        btnCerrar.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        window.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+
+</body>
+</html>
