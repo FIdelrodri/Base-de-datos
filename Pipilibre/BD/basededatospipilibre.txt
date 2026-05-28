@@ -123,3 +123,11 @@ begin
 	select saldo from usuario where id_usuario = id_usuario_check;
 end
 // DELIMITER ;
+DELIMITER $$
+CREATE PROCEDURE salida_info_usuario`(
+in p_id_usuario int
+)
+begin
+	select * from usuario where id_usuario = p_id_usuario;
+end
+$$ DELIMITER ;
